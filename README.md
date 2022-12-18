@@ -16,6 +16,10 @@ docker ps -a
 
 # Descrição
 
+docker ps -a -q
+
+# Descrição
+
 docker run -it
 
 # Descrição
@@ -41,6 +45,10 @@ docker rm
 # Descrição
 
 docker rm -f
+
+# Descrição
+
+docker rm $(docker ps -a -q) -f
 
 # Descrição
 
