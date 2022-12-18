@@ -93,3 +93,7 @@ docker rmi nomedaimagem
 # Decrição
 
 docker build -t mdssdev/nginx-com-vim:latest .
+
+# Descrição
+
+docker push nomedaimagem
