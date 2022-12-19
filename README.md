@@ -97,3 +97,15 @@ docker build -t mdssdev/nginx-com-vim:latest .
 # Descrição
 
 docker push nomedaimagem
+
+# Descrição
+
+docker pull nomedaimagem
+
+# Descrição
+
+docker network
+docker network ls
+docker network inspect
+
+docker network create --driver bridge minharede
