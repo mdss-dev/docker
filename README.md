@@ -119,9 +119,3 @@ docker run -dit --name ubuntu1 --network minharede bash
 # Descrição
 
 docker attach ubuntu1
-
-php -S localhost:8000 -t foo/
-
-curl http://host.docker.internal:8000
-
-php -S 0.0.0.0:8000
