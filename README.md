@@ -10,11 +10,15 @@
 docker run
 ```
 
+---
+
 ### Lista todos os containers
 
 ```bash
 docker ps
 ```
+
+---
 
 ### Lista todos os contêineres, incluindo os contêineres que estão em execução no momento e os que já foram parados
 
@@ -22,11 +26,15 @@ docker ps
 docker ps -a
 ```
 
+---
+
 ### Lista os IDs de todos os contêineres (tanto os em execução quanto os parados)
 
 ```bash
 docker ps -a -q
 ```
+
+---
 
 ### Cria um novo contêiner Docker e executar um shell interativo dentro do contêiner
 
@@ -34,11 +42,15 @@ docker ps -a -q
 docker run -it
 ```
 
+---
+
 ### executa um shell interativo dentro de um contêiner Docker (nginx) em execução
 
 ```bash
 docker exec -it nginx bash
 ```
+
+---
 
 ### Cria um novo contêiner Docker e executá-lo em segundo plano (modo daemon)
 
@@ -46,11 +58,15 @@ docker exec -it nginx bash
 docker run -d
 ```
 
+---
+
 ### Este comando cria um contêiner Docker a partir da imagem do Nginx, nomeia-o como "nginx", inicia-o em segundo plano, mapeia a porta 8080 do host para a porta 80 do contêiner, cria um ponto de montagem para compartilhar arquivos entre o host e o contêiner e executa o Nginx dentro do contêiner
 
 ```bash
 docker run -d --name nginx -p 8080:80 --mount type=bind,source="$(pwd)"/html,target=/usr/share/nginx/html nginx
 ```
+
+---
 
 ### Cria e executa um novo contêiner Docker a partir da imagem oficial do Nginx
 
@@ -65,11 +81,15 @@ Este comando cria um contêiner Docker a partir da imagem do Nginx, nomeia-o com
 docker run -d --name nginx -p 8080:80 nginx -v /home/mdss-dev/workspaces/fullcycle/docker/html:/usr/share/nginx/html
 ```
 
+---
+
 ### Remover um ou mais contêineres Docker
 
 ```bash
 docker rm
 ```
+
+---
 
 ### Forçar a remoção de um ou mais contêineres Docker. A opção -f ou --force força a remoção do contêiner, mesmo se ele estiver em execução
 
@@ -77,7 +97,9 @@ docker rm
 docker rm -f
 ```
 
-### Remove todos os contêineres Docker que estão atualmente parados ou em execução. Ele funciona da seguinte forma:
+---
+
+### Remove todos os contêineres Docker que estão atualmente parados ou em execução. Ele funciona da seguinte forma
 
 docker ps -a -q lista todos os IDs de contêineres (parados e em execução).
 `$()`é usado para executar o comando docker ps -a -q e inserir a saída como argumento para o comando docker rm.
@@ -88,11 +110,15 @@ docker rm remove o(s) contêiner(es) especificado(s).
 docker rm $(docker ps -a -q) -f
 ```
 
+---
+
 ### Gerenciamento dos volumes no Docker
 
 ```bash
 docker volume
 ```
+
+---
 
 ### Listar todos os volumes existentes
 
@@ -100,11 +126,15 @@ docker volume
 docker volume ls
 ```
 
+---
+
 ### Criar um novo volume
 
 ```bash
 docker volume create (nomedovolume)
 ```
+
+---
 
 ### Inspectar informações sobre um volume específico
 
@@ -112,11 +142,15 @@ docker volume create (nomedovolume)
 docker volume inspect (nomedovolume)
 ```
 
+---
+
 ### Cria um novo contêiner Docker baseado na imagem oficial do Nginx, definindo um ponto de montagem e um volume para armazenar dados fora do contêiner
 
 ```bash
 docker run -d --name nginx --mount type=volume,source=meuvolume,target=/app nginx
 ```
+
+---
 
 ### Cria um novo contêiner Docker baseado na imagem oficial do Nginx, definindo um ponto de montagem e um volume para armazenar dados fora do contêiner. É uma maneira mais simplificada de criar e montar volumes do que a opção`--mount`
 
@@ -124,11 +158,15 @@ docker run -d --name nginx --mount type=volume,source=meuvolume,target=/app ngin
 docker run -d --name nginx -v meuvolume:/app nginx
 ```
 
+---
+
 ### Remove todos os volumes que não estão sendo usados por nenhum contêiner. Isso ajuda a limpar o espaço de armazenamento no host do Docker, removendo dados desnecessários e liberando recursos. Pode ser usado `-f` ou `--force`
 
 ```bash
 docker volume prune
 ```
+
+---
 
 ### Lista todas as imagens armazenadas localmente no host do Docker. Esse comando exibe informações como o nome da imagem, a tag, o ID da imagem, o tamanho e a data de criação
 
@@ -136,17 +174,23 @@ docker volume prune
 docker images
 ```
 
+---
+
 ### Baixar uma imagem do Docker Hub ou de um registro de contêineres
 
 ```bash
 docker pull nomedaimagem
 ```
 
+---
+
 ### Remove uma imagem localmente do host do Docker
 
 ```bash
 docker rmi nomedaimagem
 ```
+
+---
 
 ### Constroe uma nova imagem a partir de um Dockerfile e atribuir a ela um nome e uma tag específicos
 
@@ -156,11 +200,15 @@ Ao executar o comando, o Docker procura pelo arquivo Dockerfile no diretório at
 docker build -t mdssdev/nginx-com-vim:latest
 ```
 
+---
+
 ### Envia uma imagem para um registro de contêineres, permitindo que outras pessoas acessem e usem a imagem
 
 ```bash
 docker push nomedaimagem
 ```
+
+---
 
 ### Cria redes isoladas que permitem que contêineres se comuniquem entre si, mesmo que estejam em hosts diferentes ou em diferentes redes físicas
 
@@ -168,11 +216,15 @@ docker push nomedaimagem
 docker network
 ```
 
+---
+
 ### Lista todas as redes disponíveis no host Docker
 
 ```bash
 docker network ls
 ```
+
+---
 
 ### Obter informações detalhadas sobre uma rede específica no host Docker
 
@@ -190,6 +242,8 @@ Options: opções adicionais da rede.
 docker network inspect
 ```
 
+---
+
 ### Cria uma nova rede no host Docker
 
 Ao criar uma nova rede, você pode conectar contêineres a ela para que eles possam se comunicar uns com os outros
@@ -203,6 +257,8 @@ Depois de criar uma rede, você pode conectar contêineres a ela usando o comand
 ```bash
 docker network create --driver bridge minharede
 ```
+
+---
 
 ### Cria um novo contêiner a partir da imagem ubuntu, com o nome ubuntu1 e executando o shell bash
 
@@ -221,8 +277,12 @@ Dessa forma, o contêiner ubuntu1 será executado em segundo plano, mas ainda se
 docker run -dit --name ubuntu1 --network minharede bash
 ```
 
+---
+
 ### Conecta um terminal a um contêiner em execução. Nesse exemplo, o comando docker attach ubuntu1 conectará o terminal padrão do host Docker ao contêiner ubuntu1
 
 ```bash
 docker attach ubuntu1
 ```
+
+---
