@@ -77,12 +77,10 @@ docker rm
 docker rm -f
 ```
 
-### Remove todos os contêineres Docker que estão atualmente parados ou em execução
-
-Ele funciona da seguinte forma:
+### Remove todos os contêineres Docker que estão atualmente parados ou em execução. Ele funciona da seguinte forma:
 
 docker ps -a -q lista todos os IDs de contêineres (parados e em execução).
-$() é usado para executar o comando docker ps -a -q e inserir a saída como argumento para o comando docker rm.
+`$()`é usado para executar o comando docker ps -a -q e inserir a saída como argumento para o comando docker rm.
 docker rm remove o(s) contêiner(es) especificado(s).
 -f é usado para forçar a remoção do(s) contêiner(es) em execução.
 
