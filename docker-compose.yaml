@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  laravel:
+    image: mdssdev/laravel:prod
+    container_name: laravel
+    networks:
+      - laranet
+
+  nginx:
+    image: mdssdev/nginx:prod
+    container_name: nginx
+    networks:
+      - laranet
+    ports:
+      - "8080:80"
+
+networks:
+  laranet:
+    driver: bridge
