@@ -286,3 +286,33 @@ docker attach ubuntu1
 ```
 
 ---
+
+### Executa o arquivo docker compose e sobe os containers ali configurados
+
+```bash
+ docker compose up
+```
+
+---
+
+### Executa o arquivo docker compose e sobe os containers ali configurados em segundo plano
+
+```bash
+ docker compose up -d
+```
+
+---
+
+### Desce os serviços
+
+```bash
+ docker compose down
+```
+
+---
+
+### Executa o arquivo docker compose, rebuilda e sobe os containers em segudo plano
+
+```bash
+ docker compose up -d --build
+```
